@@ -146,77 +146,39 @@
     <!-- Navigation Menu -->
     <nav>
         <ul>
-            <li><a href="#jackets">Jackets</a></li>
-            <li><a href="#blazers">Blazers</a></li>
-            <li><a href="#shirts">Shirts</a></li>
-            <li><a href="#pants">Pants</a></li>
+            <li><a href="#jackets" onclick="showCategory('jackets')">Jackets</a></li>
+            <li><a href="#blazers" onclick="showCategory('blazers')">Blazers</a></li>
+            <li><a href="#shirts" onclick="showCategory('shirts')">Shirts</a></li>
+            <li><a href="#pants" onclick="showCategory('pants')">Pants</a></li>
         </ul>
     </nav>
 
     <!-- Section: Uniforms Display -->
-    <section>
+    <section id="uniforms-section">
         <h2>Our Uniforms</h2>
-        <div class="uniforms-container">
+        <div id="uniforms-container" class="uniforms-container">
             <!-- Uniform Items with Prices -->
-            <div class="uniform-item">
+            <div class="uniform-item" data-category="jackets">
                 <img src="images/images/uniform1.PNG" alt="Uniform 1">
-                <p>Uniform 1</p>
+                <p>Jacket 1</p>
                 <span>R250.00</span>
             </div>
-
-            <div class="uniform-item">
+            <div class="uniform-item" data-category="blazers">
                 <img src="images/images/uniform2.PNG" alt="Uniform 2">
-                <p>Uniform 2</p>
+                <p>Blazer 1</p>
                 <span>R300.00</span>
             </div>
-
-            <div class="uniform-item">
+            <div class="uniform-item" data-category="shirts">
                 <img src="images/images/uniform3.PNG" alt="Uniform 3">
-                <p>Uniform 3</p>
+                <p>Shirt 1</p>
                 <span>R350.00</span>
             </div>
-
-            <div class="uniform-item">
+            <div class="uniform-item" data-category="pants">
                 <img src="images/images/uniform4.PNG" alt="Uniform 4">
-                <p>Uniform 4</p>
+                <p>Pant 1</p>
                 <span>R400.00</span>
             </div>
-
-            <div class="uniform-item">
-                <img src="images/images/uniform5.PNG" alt="Uniform 5">
-                <p>Uniform 5</p>
-                <span>R450.00</span>
-            </div>
-
-            <div class="uniform-item">
-                <img src="images/images/uniform6.PNG" alt="Uniform 6">
-                <p>Uniform 6</p>
-                <span>R500.00</span>
-            </div>
-
-            <div class="uniform-item">
-                <img src="images/images/uniform7.PNG" alt="Uniform 7">
-                <p>Uniform 7</p>
-                <span>R550.00</span>
-            </div>
-
-            <div class="uniform-item">
-                <img src="images/images/uniform8.PNG" alt="Uniform 8">
-                <p>Uniform 8</p>
-                <span>R600.00</span>
-            </div>
-
-            <div class="uniform-item">
-                <img src="images/images/uniform9.PNG" alt="Uniform 9">
-                <p>Uniform 9</p>
-                <span>R650.00</span>
-            </div>
-
-            <div class="uniform-item">
-                <img src="images/images/uniform10.PNG" alt="Uniform 10">
-                <p>Uniform 10</p>
-                <span>R700.00</span>
-            </div>
+            <!-- Add more uniform items with appropriate data-category -->
         </div>
     </section>
 
@@ -226,5 +188,22 @@
         <p>CALL us at: <strong>078 894 9551</strong></p>
         <p>&copy; 2024 Xingashe Uniforms</p>
     </footer>
+
+    <script>
+        // JavaScript Function to Filter Uniforms by Category
+        function showCategory(category) {
+            const allItems = document.querySelectorAll('.uniform-item');
+            allItems.forEach(item => {
+                if (item.getAttribute('data-category') === category || category === 'all') {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // Display all categories by default
+        showCategory('all');
+    </script>
 </body>
 </html>
