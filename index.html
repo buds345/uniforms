@@ -17,6 +17,7 @@
             color: #333;
         }
 
+        /* Header Styling */
         header {
             background-color: rgba(0, 51, 102, 0.8);
             color: white;
@@ -24,6 +25,7 @@
             padding: 20px 0;
         }
 
+        /* Navigation Menu */
         nav {
             background-color: rgba(0, 85, 153, 0.9);
             text-align: center;
@@ -35,10 +37,11 @@
             margin: 0;
             display: flex;
             justify-content: center;
+            flex-wrap: wrap;
         }
 
         nav ul li {
-            margin: 0 15px;
+            margin: 5px 15px;
         }
 
         nav ul li a {
@@ -62,8 +65,8 @@
             background-color: rgba(255, 255, 255, 0.9);
             margin: 10px auto;
             border-radius: 5px;
-            width: 90%;
-            max-width: 1000px;
+            width: 95%;
+            max-width: 1200px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.3);
         }
 
@@ -73,9 +76,8 @@
 
         /* Uniform Grid */
         .uniforms-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 20px;
             margin-top: 20px;
         }
@@ -87,25 +89,50 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
             padding: 10px;
             text-align: center;
-            width: 200px;
+            transition: transform 0.3s ease;
         }
 
         .uniform-item img {
             width: 100%;
             height: auto;
             border-radius: 5px;
+            object-fit: cover;
         }
 
         .uniform-item p {
             font-weight: bold;
-            margin-top: 10px;
+            margin: 10px 0 0 0;
         }
 
+        .uniform-item span {
+            display: block;
+            color: green;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .uniform-item:hover {
+            transform: scale(1.05);
+        }
+
+        /* Footer Styling */
         footer {
             background-color: rgba(0, 51, 102, 0.8);
             color: white;
             text-align: center;
             padding: 20px 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+            }
+
+            .uniform-item {
+                width: 90%;
+                margin: auto;
+            }
         }
     </style>
 </head>
@@ -130,28 +157,65 @@
     <section>
         <h2>Our Uniforms</h2>
         <div class="uniforms-container">
-            <!-- Uniform 1 -->
+            <!-- Uniform Items with Prices -->
             <div class="uniform-item">
                 <img src="images/images/uniform1.PNG" alt="Uniform 1">
                 <p>Uniform 1</p>
+                <span>R250.00</span>
             </div>
 
-            <!-- Uniform 2 -->
             <div class="uniform-item">
                 <img src="images/images/uniform2.PNG" alt="Uniform 2">
                 <p>Uniform 2</p>
+                <span>R300.00</span>
             </div>
 
-            <!-- Uniform 3 -->
             <div class="uniform-item">
                 <img src="images/images/uniform3.PNG" alt="Uniform 3">
                 <p>Uniform 3</p>
+                <span>R350.00</span>
             </div>
 
-            <!-- Uniform 4 -->
             <div class="uniform-item">
                 <img src="images/images/uniform4.PNG" alt="Uniform 4">
                 <p>Uniform 4</p>
+                <span>R400.00</span>
+            </div>
+
+            <div class="uniform-item">
+                <img src="images/images/uniform5.PNG" alt="Uniform 5">
+                <p>Uniform 5</p>
+                <span>R450.00</span>
+            </div>
+
+            <div class="uniform-item">
+                <img src="images/images/uniform6.PNG" alt="Uniform 6">
+                <p>Uniform 6</p>
+                <span>R500.00</span>
+            </div>
+
+            <div class="uniform-item">
+                <img src="images/images/uniform7.PNG" alt="Uniform 7">
+                <p>Uniform 7</p>
+                <span>R550.00</span>
+            </div>
+
+            <div class="uniform-item">
+                <img src="images/images/uniform8.PNG" alt="Uniform 8">
+                <p>Uniform 8</p>
+                <span>R600.00</span>
+            </div>
+
+            <div class="uniform-item">
+                <img src="images/images/uniform9.PNG" alt="Uniform 9">
+                <p>Uniform 9</p>
+                <span>R650.00</span>
+            </div>
+
+            <div class="uniform-item">
+                <img src="images/images/uniform10.PNG" alt="Uniform 10">
+                <p>Uniform 10</p>
+                <span>R700.00</span>
             </div>
         </div>
     </section>
