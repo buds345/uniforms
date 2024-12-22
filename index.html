@@ -123,50 +123,27 @@
             padding: 20px 0;
         }
 
-        /* Contact Form Styling */
-        .contact-form {
-            text-align: left;
+        /* Mission, Vision, Slogan, Objectives Section */
+        .business-info {
             background-color: rgba(255, 255, 255, 0.9);
             padding: 20px;
+            text-align: center;
             margin: 20px auto;
             border-radius: 5px;
-            max-width: 800px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            width: 95%;
+            max-width: 1200px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
         }
 
-        .contact-form input, .contact-form textarea {
-            width: calc(100% - 20px);
-            padding: 10px;
+        .business-info h3 {
+            color: #003366;
+        }
+
+        .business-info p, .business-info ul {
+            font-size: 16px;
+            line-height: 1.8;
             margin: 10px 0;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-
-        .contact-form button {
-            padding: 10px 20px;
-            background-color: #003366;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-
-        .contact-form button:hover {
-            background-color: #0055cc;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            nav ul {
-                flex-direction: column;
-            }
-
-            .uniform-item {
-                width: 90%;
-                margin: auto;
-            }
+            text-align: left;
         }
     </style>
 </head>
@@ -180,8 +157,10 @@
     <!-- Navigation Menu -->
     <nav>
         <ul>
-            <li><a href="#uniforms-section">Our Products</a></li>
-            <li><a href="#contact">Contact Us</a></li>
+            <li><a href="#jackets" onclick="showCategory('jackets')">Jackets</a></li>
+            <li><a href="#blazers" onclick="showCategory('blazers')">Blazers</a></li>
+            <li><a href="#shirts" onclick="showCategory('shirts')">Shirts</a></li>
+            <li><a href="#Regalia" onclick="showCategory('Regalia')">Regalia</a></li>
         </ul>
     </nav>
 
@@ -189,34 +168,69 @@
     <section id="uniforms-section">
         <h2>Our Uniforms</h2>
         <div id="uniforms-container" class="uniforms-container">
-            <div class="uniform-item">
-                <img src="images/images/uniform1.PNG" alt="Jacket">
-                <p>Jacket</p>
+            <div class="uniform-item" data-category="jackets">
+                <img src="images/images/uniform1.PNG" alt="Uniform 1">
+                <p>Jacket 1</p>
                 <span>Price Available on Request</span>
             </div>
-            <!-- Add more uniform items here -->
+            <div class="uniform-item" data-category="blazers">
+                <img src="images/images/uniform2.PNG" alt="Uniform 2">
+                <p>Blazer 1</p>
+                <span>Price Available on Request</span>
+            </div>
+            <div class="uniform-item" data-category="shirts">
+                <img src="images/images/uniform3.PNG" alt="Uniform 3">
+                <p>Shirt 1</p>
+                <span>Price Available on Request</span>
+            </div>
+            <div class="uniform-item" data-category="Regalia">
+                <img src="images/images/uniform4.PNG" alt="Uniform 4">
+                <p>Pant 1</p>
+                <span>Price Available on Request</span>
+            </div>
         </div>
     </section>
 
-    <    <!-- Contact Form -->
-    <section id="contact">
-        <h2>Contact Us</h2>
-        <p>For inquiries and orders, feel free to get in touch!</p>
-        <form class="contact-form" action="mailto:banelebanele938@gmail.com" method="post" enctype="text/plain">
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Your Email" required>
-            <input type="text" name="subject" placeholder="Subject" required>
-            <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-            <button type="submit">Submit</button>
-        </form>
-    </section>
+    <!-- Section: Mission, Vision, Slogan, Objectives -->
+    <section class="business-info">
+        <h3>Our Mission</h3>
+        <p>To provide high-quality, affordable, and durable uniforms that empower individuals and organizations with a sense of identity, professionalism, and confidence.</p>
 
+        <h3>Our Vision</h3>
+        <p>To become the leading uniform supplier in South Africa, known for excellence, innovation, and outstanding customer service.</p>
+
+        <h3>Our Slogan</h3>
+        <p>"Style with Purpose, Quality without Compromise!"</p>
+
+        <h3>Our Objectives</h3>
+        <ul>
+            <li>Deliver tailored uniform solutions that meet the unique needs of our customers.</li>
+            <li>Ensure every product combines style, comfort, and durability.</li>
+            <li>Promote sustainable practices in uniform production.</li>
+            <li>Provide excellent service that builds long-term customer relationships.</li>
+        </ul>
+    </section>
 
     <!-- Footer -->
     <footer>
-        <p>Email us at: <strong>june.toyi@gmail.com</strong></p>
-        <p>Call us at: <strong>078 894 9551</strong></p>
+        <p>EMAIL us at: <strong>june.toyi@gmail.com</strong></p>
+        <p>CALL us at: <strong>078 894 9551</strong></p>
         <p>&copy; 2024 Xingashe Uniforms</p>
     </footer>
+
+    <script>
+        function showCategory(category) {
+            const allItems = document.querySelectorAll('.uniform-item');
+            allItems.forEach(item => {
+                if (item.getAttribute('data-category') === category || category === 'all') {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        showCategory('all');
+    </script>
 </body>
 </html>
