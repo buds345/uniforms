@@ -58,6 +58,21 @@
             border-radius: 5px;
         }
 
+        /* Search Bar */
+        #search-bar {
+            text-align: center;
+            margin: 20px auto;
+        }
+
+        #search-input {
+            width: 80%;
+            max-width: 600px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
         /* Section Styling */
         section {
             padding: 20px;
@@ -115,94 +130,40 @@
             transform: scale(1.05);
         }
 
+        /* Image Slider */
+        #image-slider {
+            text-align: center;
+            margin: 20px auto;
+        }
+
+        .slider {
+            position: relative;
+            overflow: hidden;
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .slide {
+            display: none;
+            transition: transform 0.5s ease;
+        }
+
+        .slide img {
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        .slider .slide.active {
+            display: block;
+        }
+
         /* Footer Styling */
         footer {
             background-color: rgba(0, 51, 102, 0.8);
             color: white;
             text-align: center;
             padding: 20px 0;
-        }
-
-        /* Mission, Vision, Slogan, Objectives Section */
-        .business-info {
-            background-color: rgba(255, 255, 255, 0.9);
-            padding: 20px;
-            text-align: center;
-            margin: 20px auto;
-            border-radius: 5px;
-            width: 95%;
-            max-width: 1200px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-        }
-
-        .business-info h3 {
-            color: #003366;
-        }
-
-        .business-info p, .business-info ul {
-            font-size: 16px;
-            line-height: 1.8;
-            margin: 10px 0;
-            text-align: left;
-        }
-
-        /* Image Slider Styling */
-        .slider {
-            position: relative;
-            width: 100%;
-            max-width: 1200px;
-            margin: 20px auto;
-            overflow: hidden;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-        }
-
-        .slides {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-        }
-
-        .slides img {
-            width: 100%;
-            border-radius: 10px;
-        }
-
-        .slider-buttons {
-            position: absolute;
-            top: 50%;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            transform: translateY(-50%);
-        }
-
-        .slider-buttons button {
-            background-color: rgba(0, 51, 102, 0.8);
-            color: white;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            border-radius: 5px;
-            font-size: 18px;
-        }
-
-        .slider-buttons button:hover {
-            background-color: rgba(0, 64, 128, 0.9);
-        }
-
-        /* Search Bar Styling */
-        .search-bar {
-            margin: 20px auto;
-            text-align: center;
-        }
-
-        .search-bar input {
-            padding: 10px;
-            width: 80%;
-            max-width: 600px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 16px;
         }
     </style>
 </head>
@@ -212,7 +173,7 @@
         <h1>XINGASHE UNIFORMS</h1>
         <p>High-quality uniforms for schools, businesses, and more!</p>
     </header>
-
+    
     <!-- Navigation Menu -->
     <nav>
         <ul>
@@ -224,23 +185,20 @@
     </nav>
 
     <!-- Search Bar -->
-    <div class="search-bar">
-        <input type="text" id="searchInput" placeholder="Search uniforms..." onkeyup="searchUniforms()">
+    <div id="search-bar">
+        <input type="text" id="search-input" placeholder="Search for uniforms..." onkeyup="searchUniforms()">
     </div>
 
-    <!-- Image Slider -->
-    <div class="slider">
-        <div class="slides" id="slides">
-            <img src="images/images/uniform1.PNG" alt="Uniform 1">
-            <img src="images/images/uniform2.PNG" alt="Uniform 2">
-            <img src="images/images/uniform3.PNG" alt="Uniform 3">
-            <img src="images/images/uniform4.PNG" alt="Uniform 4">
+    <!-- Image Slider Section -->
+    <section id="image-slider">
+        <h2>Featured Products</h2>
+        <div class="slider">
+            <div class="slide active"><img src="images/images/uniform1.PNG" alt="Uniform 1"></div>
+            <div class="slide"><img src="images/images/uniform2.PNG" alt="Uniform 2"></div>
+            <div class="slide"><img src="images/images/uniform3.PNG" alt="Uniform 3"></div>
+            <div class="slide"><img src="images/images/uniform4.PNG" alt="Uniform 4"></div>
         </div>
-        <div class="slider-buttons">
-            <button onclick="prevSlide()">&#10094;</button>
-            <button onclick="nextSlide()">&#10095;</button>
-        </div>
-    </div>
+    </section>
 
     <!-- Section: Uniforms Display -->
     <section id="uniforms-section">
@@ -277,8 +235,25 @@
     </footer>
 
     <script>
+        // Slider Functionality
         let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
 
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        setInterval(nextSlide, 3000); // Change slide every 3 seconds
+        showSlide(currentSlide);
+
+        // Category Filter
         function showCategory(category) {
             const allItems = document.querySelectorAll('.uniform-item');
             allItems.forEach(item => {
@@ -290,35 +265,20 @@
             });
         }
 
+        // Search Functionality
         function searchUniforms() {
-            const searchInput = document.getElementById('searchInput').value.toLowerCase();
-            const allItems = document.querySelectorAll('.uniform-item');
+            const query = document.getElementById('search-input').value.toLowerCase();
+            const items = document.querySelectorAll('.uniform-item');
 
-            allItems.forEach(item => {
-                const itemText = item.textContent.toLowerCase();
-                if (itemText.includes(searchInput)) {
+            items.forEach(item => {
+                const text = item.innerText.toLowerCase();
+                if (text.includes(query)) {
                     item.style.display = 'block';
                 } else {
                     item.style.display = 'none';
                 }
             });
         }
-
-        function nextSlide() {
-            const slides = document.getElementById('slides');
-            const totalSlides = slides.children.length;
-            currentSlide = (currentSlide + 1) % totalSlides;
-            slides.style.transform = `translateX(-${currentSlide * 100}%)`;
-        }
-
-        function prevSlide() {
-            const slides = document.getElementById('slides');
-            const totalSlides = slides.children.length;
-            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-            slides.style.transform = `translateX(-${currentSlide * 100}%)`;
-        }
-
-        showCategory('all');
     </script>
 </body>
 </html>
