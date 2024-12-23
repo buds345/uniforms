@@ -145,6 +145,65 @@
             margin: 10px 0;
             text-align: left;
         }
+
+        /* Image Slider Styling */
+        .slider {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            margin: 20px auto;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slides img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .slider-buttons {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .slider-buttons button {
+            background-color: rgba(0, 51, 102, 0.8);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+
+        .slider-buttons button:hover {
+            background-color: rgba(0, 64, 128, 0.9);
+        }
+
+        /* Search Bar Styling */
+        .search-bar {
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        .search-bar input {
+            padding: 10px;
+            width: 80%;
+            max-width: 600px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
     </style>
 </head>
 <body>
@@ -153,7 +212,7 @@
         <h1>XINGASHE UNIFORMS</h1>
         <p>High-quality uniforms for schools, businesses, and more!</p>
     </header>
-    
+
     <!-- Navigation Menu -->
     <nav>
         <ul>
@@ -163,6 +222,25 @@
             <li><a href="#Regalia" onclick="showCategory('Regalia')">Regalia</a></li>
         </ul>
     </nav>
+
+    <!-- Search Bar -->
+    <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Search uniforms..." onkeyup="searchUniforms()">
+    </div>
+
+    <!-- Image Slider -->
+    <div class="slider">
+        <div class="slides" id="slides">
+            <img src="images/images/uniform1.PNG" alt="Uniform 1">
+            <img src="images/images/uniform2.PNG" alt="Uniform 2">
+            <img src="images/images/uniform3.PNG" alt="Uniform 3">
+            <img src="images/images/uniform4.PNG" alt="Uniform 4">
+        </div>
+        <div class="slider-buttons">
+            <button onclick="prevSlide()">&#10094;</button>
+            <button onclick="nextSlide()">&#10095;</button>
+        </div>
+    </div>
 
     <!-- Section: Uniforms Display -->
     <section id="uniforms-section">
@@ -191,26 +269,6 @@
         </div>
     </section>
 
-    <!-- Section: Mission, Vision, Slogan, Objectives -->
-    <section class="business-info">
-        <h3>Our Mission</h3>
-        <p>To provide high-quality, affordable, and durable uniforms that empower individuals and organizations with a sense of identity, professionalism, and confidence.</p>
-
-        <h3>Our Vision</h3>
-        <p>To become the leading uniform supplier in South Africa, known for excellence, innovation, and outstanding customer service.</p>
-
-        <h3>Our Slogan</h3>
-        <p>"Style with Purpose, Quality without Compromise!"</p>
-
-        <h3>Our Objectives</h3>
-        <ul>
-            <li>Deliver tailored uniform solutions that meet the unique needs of our customers.</li>
-            <li>Ensure every product combines style, comfort, and durability.</li>
-            <li>Promote sustainable practices in uniform production.</li>
-            <li>Provide excellent service that builds long-term customer relationships.</li>
-        </ul>
-    </section>
-
     <!-- Footer -->
     <footer>
         <p>EMAIL us at: <strong>june.toyi@gmail.com</strong></p>
@@ -219,6 +277,8 @@
     </footer>
 
     <script>
+        let currentSlide = 0;
+
         function showCategory(category) {
             const allItems = document.querySelectorAll('.uniform-item');
             allItems.forEach(item => {
@@ -228,6 +288,34 @@
                     item.style.display = 'none';
                 }
             });
+        }
+
+        function searchUniforms() {
+            const searchInput = document.getElementById('searchInput').value.toLowerCase();
+            const allItems = document.querySelectorAll('.uniform-item');
+
+            allItems.forEach(item => {
+                const itemText = item.textContent.toLowerCase();
+                if (itemText.includes(searchInput)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        function nextSlide() {
+            const slides = document.getElementById('slides');
+            const totalSlides = slides.children.length;
+            currentSlide = (currentSlide + 1) % totalSlides;
+            slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
+        function prevSlide() {
+            const slides = document.getElementById('slides');
+            const totalSlides = slides.children.length;
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            slides.style.transform = `translateX(-${currentSlide * 100}%)`;
         }
 
         showCategory('all');
