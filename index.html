@@ -4,180 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Xingashe Uniforms</title>
-    <style>
-        /* General Body Styling */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-image: url('images/images/uniform5.PNG');
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            color: #333;
-        }
-
-        /* Header Styling */
-        header {
-            background-color: rgba(0, 51, 102, 0.8);
-            color: white;
-            text-align: center;
-            padding: 20px 0;
-        }
-
-        /* Navigation Menu */
-        nav {
-            background-color: rgba(0, 85, 153, 0.9);
-            text-align: center;
-        }
-
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        nav ul li {
-            margin: 5px 15px;
-        }
-
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-size: 18px;
-            font-weight: bold;
-            display: block;
-            padding: 10px;
-        }
-
-        nav ul li a:hover {
-            background-color: rgba(0, 64, 128, 0.8);
-            border-radius: 5px;
-        }
-
-        /* Search Bar */
-        #search-bar {
-            text-align: center;
-            margin: 20px auto;
-        }
-
-        #search-input {
-            width: 80%;
-            max-width: 600px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-
-        /* Section Styling */
-        section {
-            padding: 20px;
-            text-align: center;
-            background-color: rgba(255, 255, 255, 0.9);
-            margin: 10px auto;
-            border-radius: 5px;
-            width: 95%;
-            max-width: 1200px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-        }
-
-        h2 {
-            color: #003366;
-        }
-
-        /* Uniform Grid */
-        .uniforms-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .uniform-item {
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            background-color: white;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            padding: 10px;
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
-
-        .uniform-item img {
-            width: 100%;
-            height: auto;
-            border-radius: 5px;
-            object-fit: cover;
-        }
-
-        .uniform-item p {
-            font-weight: bold;
-            margin: 10px 0 0 0;
-        }
-
-        .uniform-item span {
-            display: block;
-            color: green;
-            font-size: 16px;
-            font-weight: bold;
-        }
-
-        .uniform-item:hover {
-            transform: scale(1.05);
-        }
-
-        /* Image Slider */
-        #image-slider {
-            text-align: center;
-            margin: 20px auto;
-        }
-
-        .slider {
-            position: relative;
-            overflow: hidden;
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .slide {
-            display: none;
-            transition: transform 0.5s ease;
-        }
-
-        .slide img {
-            width: 100%;
-            border-radius: 5px;
-        }
-
-        .slider .slide.active {
-            display: block;
-        }
-
-        /* Footer Styling */
-        footer {
-            background-color: rgba(0, 51, 102, 0.8);
-            color: white;
-            text-align: center;
-            padding: 20px 0;
-        }
-
-        /* Business Info Section */
-        .business-info h3 {
-            color: #003366;
-        }
-
-        .business-info p, .business-info ul {
-            font-size: 16px;
-            line-height: 1.8;
-            margin: 10px 0;
-            text-align: left;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- Header -->
@@ -189,118 +16,22 @@
     <!-- Navigation Menu -->
     <nav>
         <ul>
-            <li><a href="#jackets" onclick="showCategory('jackets')">Jackets</a></li>
-            <li><a href="#blazers" onclick="showCategory('blazers')">Blazers</a></li>
-            <li><a href="#shirts" onclick="showCategory('shirts')">Shirts</a></li>
-            <li><a href="#Regalia" onclick="showCategory('Regalia')">Regalia</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
-
-    <!-- Search Bar -->
-    <div id="search-bar">
-        <input type="text" id="search-input" placeholder="Search for uniforms..." onkeyup="searchUniforms()">
-    </div>
 
     <!-- Image Slider Section -->
     <section id="image-slider">
         <h2>Featured Products</h2>
         <div class="slider">
-            <div class="slide active"><img src="images/images/uniform1.PNG" alt="Uniform 1"></div>
-            <div class="slide"><img src="images/images/uniform2.PNG" alt="Uniform 2"></div>
-            <div class="slide"><img src="images/images/uniform3.PNG" alt="Uniform 3"></div>
-            <div class="slide"><img src="images/images/uniform4.PNG" alt="Uniform 4"></div>
+            <div class="slide active"><img src="images/uniform1.PNG" alt="Uniform 1"></div>
+            <div class="slide"><img src="images/uniform2.PNG" alt="Uniform 2"></div>
+            <div class="slide"><img src="images/uniform3.PNG" alt="Uniform 3"></div>
+            <div class="slide"><img src="images/uniform4.PNG" alt="Uniform 4"></div>
         </div>
-    </section>
-
-    <!-- Section: Uniforms Display -->
-    <section id="uniforms-section">
-        <h2>Our Uniforms</h2>
-        <div id="uniforms-container" class="uniforms-container">
-            <div class="uniform-item" data-category="jackets">
-                <img src="images/images/uniform1.PNG" alt="Uniform 1">
-                <p>Jacket 1</p>
-                <span>Price Available on Request</span>
-            </div>
-            <div class="uniform-item" data-category="blazers">
-                <img src="images/images/uniform2.PNG" alt="Uniform 2">
-                <p>Blazer 1</p>
-                <span>Price Available on Request</span>
-            </div>
-            <div class="uniform-item" data-category="shirts">
-                <img src="images/images/uniform3.PNG" alt="Uniform 3">
-                <p>Shirt 1</p>
-                <span>Price Available on Request</span>
-            </div>
-            <div class="uniform-item" data-category="Regalia">
-                <img src="images/images/uniform4.PNG" alt="Uniform 4">
-                <p>Pant 1</p>
-                <span>Price Available on Request</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section: Mission, Vision, Slogan, Objectives -->
-    <section class="business-info">
-        <h3>Our Mission</h3>
-        <p>To provide high-quality, affordable, and durable uniforms that empower individuals and organizations with a sense of identity, professionalism, and confidence.</p>
-
-        <h3>Our Vision</h3>
-        <p>To become the leading uniform supplier in South Africa, known for excellence, innovation, and outstanding customer service.</p>
-
-        <h3>Our Slogan</h3>
-        <p>"Style with Purpose, Quality without Compromise!"</p>
-
-        <h3>Our Objectives</h3>
-        <ul>
-            <li>Deliver tailored uniform solutions that meet the unique needs of our customers.</li>
-            <li>Ensure every product combines style, comfort, and durability.</li>
-            <li>Promote sustainable practices in uniform production.</li>
-            <li>Provide excellent service that builds long-term customer relationships.</li>
-        </ul>
-    </section>
-
-    <!-- Section: Background and Introduction -->
-    <section class="business-info">
-        <h3>Background</h3>
-        <p>Xingashe Trading is a 100% black youth female-owned company based in Engcobo, Eastern Cape. We specialize in the production and supply of uniforms and paraphernalia for schools, churches, and other organizations. We also offer branding services, embroidery, and other printing options.</p>
-
-        <h3>Introduction</h3>
-        <p>School uniforms instill a sense of discipline in learners and help to prevent competition among them. They also alleviate the burden on parents by providing easy access to school uniforms at reasonable prices, especially in rural areas where travel to town is costly.</p>
-    </section>
-
-    <!-- Section: Target Market and Marketing Strategy -->
-    <section class="business-info">
-        <h3>Target Market</h3>
-        <p>Our target market includes local schools, government, and private businesses. We also offer regalia for churches, unions, and other organizations such as societies and political parties.</p>
-
-        <h3>Marketing Strategy</h3>
-        <ul>
-            <li>Contact and visit schools to showcase our uniforms.</li>
-            <li>Distribute flyers and utilize word of mouth.</li>
-            <li>Leverage social media platforms like WhatsApp, TikTok, and Facebook.</li>
-        </ul>
-    </section>
-
-    <!-- Section: Outreach Initiatives -->
-    <section class="business-info">
-        <h3>Outreach Initiatives</h3>
-        <ul>
-            <li>Provide free or discounted uniforms to vulnerable learners.</li>
-            <li>Fundraise for schools and communities.</li>
-            <li>Donate towards educational tours.</li>
-            <li>Empowerment and awareness programs.</li>
-            <li>Artworks and paintings.</li>
-        </ul>
-    </section>
-
-    <!-- Section: Scope of Work -->
-    <section class="business-info">
-        <h3>Scope of Work</h3>
-        <ul>
-            <li>Production and supply of school uniforms, union regalia, and church gear.</li>
-            <li>Embroidery printing.</li>
-            <li>Supply of sports equipment and other goods and services.</li>
-        </ul>
     </section>
 
     <!-- Footer -->
@@ -311,50 +42,6 @@
         <p>&copy; 2024 Xingashe Uniforms</p>
     </footer>
 
-    <script>
-        // Slider Functionality
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.slide');
-
-        function showSlide(index) {
-            slides.forEach((slide, i) => {
-                slide.classList.toggle('active', i === index);
-            });
-        }
-
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % slides.length;
-            showSlide(currentSlide);
-        }
-
-        setInterval(nextSlide, 3000); // Change slide every 3 seconds
-        showSlide(currentSlide);
-
-        // Category Filter
-        function showCategory(category) {
-            const allItems = document.querySelectorAll('.uniform-item');
-            allItems.forEach(item => {
-                if (item.getAttribute('data-category') === category || category === 'all') {
-                    item.style.display = 'block';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
-        }
-
-        // Search Functionality
-        function searchUniforms() {
-            const query = document.getElementById('search-input').value.toLowerCase();
-            const items = document.querySelectorAll('.uniform-item');
-            items.forEach(item => {
-                const text = item.textContent.toLowerCase();
-                if (text.includes(query)) {
-                    item.style.display = 'block';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
-        }
-    </script>
+    <script src="scripts.js"></script>
 </body>
 </html>
