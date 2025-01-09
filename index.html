@@ -259,6 +259,50 @@
         </ul>
     </section>
 
+    <!-- Section: Background and Introduction -->
+    <section class="business-info">
+        <h3>Background</h3>
+        <p>Xingashe Trading is a 100% black youth female-owned company based in Engcobo, Eastern Cape. We specialize in the production and supply of uniforms and paraphernalia for schools, churches, and other organizations. We also offer branding services, embroidery, and other printing options.</p>
+
+        <h3>Introduction</h3>
+        <p>School uniforms instill a sense of discipline in learners and help to prevent competition among them. They also alleviate the burden on parents by providing easy access to school uniforms at reasonable prices, especially in rural areas where travel to town is costly.</p>
+    </section>
+
+    <!-- Section: Target Market and Marketing Strategy -->
+    <section class="business-info">
+        <h3>Target Market</h3>
+        <p>Our target market includes local schools, government, and private businesses. We also offer regalia for churches, unions, and other organizations such as societies and political parties.</p>
+
+        <h3>Marketing Strategy</h3>
+        <ul>
+            <li>Contact and visit schools to showcase our uniforms.</li>
+            <li>Distribute flyers and utilize word of mouth.</li>
+            <li>Leverage social media platforms like WhatsApp, TikTok, and Facebook.</li>
+        </ul>
+    </section>
+
+    <!-- Section: Outreach Initiatives -->
+    <section class="business-info">
+        <h3>Outreach Initiatives</h3>
+        <ul>
+            <li>Provide free or discounted uniforms to vulnerable learners.</li>
+            <li>Fundraise for schools and communities.</li>
+            <li>Donate towards educational tours.</li>
+            <li>Empowerment and awareness programs.</li>
+            <li>Artworks and paintings.</li>
+        </ul>
+    </section>
+
+    <!-- Section: Scope of Work -->
+    <section class="business-info">
+        <h3>Scope of Work</h3>
+        <ul>
+            <li>Production and supply of school uniforms, union regalia, and church gear.</li>
+            <li>Embroidery printing.</li>
+            <li>Supply of sports equipment and other goods and services.</li>
+        </ul>
+    </section>
+
     <!-- Footer -->
     <footer>
         <p>Xingashe Trading</p>
@@ -302,9 +346,8 @@
         function searchUniforms() {
             const query = document.getElementById('search-input').value.toLowerCase();
             const items = document.querySelectorAll('.uniform-item');
-
             items.forEach(item => {
-                const text = item.innerText.toLowerCase();
+                const text = item.textContent.toLowerCase();
                 if (text.includes(query)) {
                     item.style.display = 'block';
                 } else {
